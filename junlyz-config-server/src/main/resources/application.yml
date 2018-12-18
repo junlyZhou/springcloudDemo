@@ -1,0 +1,17 @@
+eureka:
+  client:
+    serviceUrl:
+      #实现注册中心的高可用
+      defaultZone: http://peer2:8761/eureka/,http://peer1:8762/eureka/
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/junlyZhou/demo-config-repo.git
+          username: junlyZhou
+          password: junly55767519
+server:
+  port: 8085
