@@ -1,0 +1,21 @@
+eureka:
+  client:
+    serviceUrl:
+      #将服务注册到peer2这个eureka服务中心（实现互相注册，进而实现高可用）
+      defaultZone: http://peer2:8762/eureka/
+    #禁止注册到自己的注册中心（因为这本来就是一个注册中心服务，没有必要自己注册自己）
+    register-with-eureka: false
+    fetch-registry: true
+  server:
+    enable-self-preservation: false
+  instance:
+    #主机名定义  如果需要使用主机名（当作域名）需要在windos下的 hosts 配置：127.0.0.1  peer1
+    #本地测试高可用不能使用localhost 配置，需要用域名（配置主机名）的方式配置
+    hostname: peer1
+spring:
+  application:
+    #应用的名称
+    name: erueka-server
+server:
+  port: 8761 #应用的端口号
+

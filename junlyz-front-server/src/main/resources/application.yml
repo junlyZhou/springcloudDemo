@@ -1,0 +1,10 @@
+eureka:
+  client:
+    serviceUrl:
+      #实现注册中心的高可用
+      defaultZone: http://peer2:8761/eureka/,http://peer1:8762/eureka/
+spring:
+  application:
+    name: front-server
+server:
+  port: 8083

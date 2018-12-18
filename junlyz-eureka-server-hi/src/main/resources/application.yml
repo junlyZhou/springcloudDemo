@@ -1,0 +1,17 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://peer1:8761/eureka/
+    register-with-eureka: false
+    fetch-registry: true
+  server:
+    enable-self-preservation: false
+  instance:
+    #主机名定义  如果需要使用主机名（当作域名）需要在windos下的 hosts 配置：127.0.0.1  peer2
+    hostname: peer2
+spring:
+  application:
+    name: erueka-server-hi
+server:
+  port: 8762
+

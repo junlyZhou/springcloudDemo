@@ -1,0 +1,20 @@
+eureka:
+  client:
+    serviceUrl:
+      #实现注册中心的高可用
+      defaultZone: http://peer2:8761/eureka/,http://peer1:8762/eureka/
+spring:
+  application:
+    name: product-server
+  #数据库配置实现自动配置数据元
+  #自动配置的包(自动配置的动作都在这里)：spring-boot-autoconfigure-2.0.2.RELEASE.jar
+  #实现数据源自动配置的类： DataSourceProperties.class
+  datasource:
+    username: junly
+    password: 55767519
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://47.99.209.168:3306/productdb?characterEncoding=utf-8&useSSL=false
+  jpa:
+    show-sql: true
+server:
+  port: 8081
