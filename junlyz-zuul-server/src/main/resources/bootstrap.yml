@@ -7,12 +7,16 @@ eureka:
 #此配置文件必须用bootstrap.yml 这个启动文件会首先拉取配置然后再启动应用程序；
 spring:
   application:
-    name: product-server
+    name: zuul-server
   cloud:
     config:
       discovery:
         enabled: true
         service-id: CONFIG-SERVER
       profile: dev
-#  redis:
-#    host: 192.168.136.139
+#自定义路由的简洁写法
+#zuul:
+#  routes:
+#    product-server: product
+    #敏感头的过滤sensitiveHeaders，比如： 设置为空则不会过滤cookie
+    #sensitiveHeaders:

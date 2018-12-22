@@ -15,6 +15,7 @@
         <module>junlyz-order-server</module>
         <module>junlyz-front-server</module>
         <module>junlyz-config-server</module>
+        <module>junlyz-zuul-server</module>
     </modules>
 
     <parent>

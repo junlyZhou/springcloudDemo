@@ -23,6 +23,7 @@ spring:
           basedir: E:\springcloud-idea-space\config-basedir
 server:
   port: 8085
+#暴露/actuator/bus-refresh地址 接口用于刷新动态配置文件
 management:
   endpoints:
     web:
