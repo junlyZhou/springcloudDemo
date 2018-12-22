@@ -4,14 +4,27 @@ eureka:
       #实现注册中心的高可用
       defaultZone: http://peer2:8761/eureka/,http://peer1:8762/eureka/
 spring:
+  rabbitmq:
+    host: 192.168.136.139
+    port: 5672
+    username: guest
+    password: guest
   application:
     name: config-server
   cloud:
     config:
       server:
         git:
+          #配置配置仓库git地址
           uri: https://github.com/junlyZhou/demo-config-repo.git
           username: junlyZhou
           password: junly55767519
+          #配置本地的配置文件仓库（会自动建立一个git本地仓库）
+          basedir: E:\springcloud-idea-space\config-basedir
 server:
   port: 8085
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

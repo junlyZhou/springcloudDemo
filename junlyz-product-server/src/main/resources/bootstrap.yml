@@ -1,0 +1,16 @@
+eureka:
+  client:
+    serviceUrl:
+      #实现注册中心的高可用
+      defaultZone: http://peer2:8761/eureka/,http://peer1:8762/eureka/
+#这里采用的是自动从配置模块动态获取配置文件，
+#此配置文件必须用bootstrap.yml 这个启动文件会首先拉取配置然后再启动应用程序；
+spring:
+  application:
+    name: product-server
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: CONFIG-SERVER
+      profile: dev

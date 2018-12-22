@@ -5,7 +5,11 @@ import com.junly.enume.ResponseEnume;
 import com.junly.pojo.Product;
 import com.junly.response.ResultVo;
 import com.junly.service.ProductService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,7 +25,10 @@ import java.util.List;
  * @Version 1.0
  **/
 @RestController
+@RefreshScope //此注解是为了配合动态刷新配置使用（必须使用这个注解）
 public class ProductController {
+
+    private static final Logger log = LoggerFactory.getLogger(ProductController.class);
 
     @Autowired
     private ProductService productService;
@@ -58,6 +65,18 @@ public class ProductController {
         resultVo.setCode(ResponseEnume.SUCCESS.getCode());
         resultVo.setMsg(ResponseEnume.SUCCESS.getDesc());
         return resultVo;
+    }
+
+    //测试配置文件动态配置的变化
+    @Value("${myname}")
+    private String name;
+
+    @RequestMapping("/name")
+    public String myName(){
+        System.out.println("打印变量：");
+        log.info("name : " + name);
+
+        return name;
     }
 
 }
