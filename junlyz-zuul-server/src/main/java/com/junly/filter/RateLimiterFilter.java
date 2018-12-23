@@ -1,4 +1,4 @@
-package com.junly.config;
+package com.junly.filter;
 
 import com.google.common.util.concurrent.RateLimiter;
 import com.netflix.zuul.ZuulFilter;

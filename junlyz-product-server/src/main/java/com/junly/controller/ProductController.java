@@ -56,6 +56,14 @@ public class ProductController {
         return resultVo;
     }
 
+    /**
+     * @description  json的方式传递参数
+     * @author junly
+     * @date 2018/12/23
+     * @param [json]
+     * @throws
+     * @return com.junly.response.ResultVo<java.util.List<com.junly.pojo.Product>>
+     */
     @RequestMapping("/findProduct")
     public ResultVo<List<Product>> findAllByProductStatus2(@RequestBody JSONObject json){
         ResultVo<List<Product>> resultVo = new ResultVo<>();

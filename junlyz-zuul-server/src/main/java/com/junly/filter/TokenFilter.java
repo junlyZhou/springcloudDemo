@@ -1,4 +1,4 @@
-package com.junly.config;
+package com.junly.filter;
 
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
@@ -20,6 +20,11 @@ import static org.springframework.cloud.netflix.zuul.filters.support.FilterConst
  **/
 public class TokenFilter extends ZuulFilter {
 
+    /**
+     * @description 设置为前置过滤器
+     * @author junly
+     * @date 2018/12/23
+     */
     @Override
     public String filterType() {
         return PRE_TYPE;

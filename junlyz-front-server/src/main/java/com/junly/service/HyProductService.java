@@ -7,8 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Service
 @FeignClient(name = "PRODUCT-SERVER")
-public interface ProductService {
+public interface HyProductService {
 
-    @RequestMapping("/findProduct")
-    String findAllByProductStatus(JSONObject json);
+    @RequestMapping("/hyProduct")
+    Object findByProductId(JSONObject json);
+
 }

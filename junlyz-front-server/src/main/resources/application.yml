@@ -8,3 +8,16 @@ spring:
     name: front-server
 server:
   port: 8083
+#配置断路器超时时间
+#hystrix:
+#  command:
+#    default:
+#      execution:
+#        isolation:
+#          thread:
+#            timeoutInMilliseconds: 3000
+
+#使用feign开启hystrix 必须要添加此配置
+feign:
+  hystrix:
+    enabled: true
